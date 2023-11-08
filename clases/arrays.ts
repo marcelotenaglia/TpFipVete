@@ -4,12 +4,13 @@ import { Client } from "./clientClass";
 import { Pet } from "./petClass";
 import { Provider } from "./providerClass";
 import { Veterinary } from "./veterinary";
+import { ArrayProv } from "./arrayProviders";
 ​
 export class Arreglos
 {
     private clients: Client[];
     private pets: Pet[];
-    private providers: Provider[];
+    private providers: ArrayProv;
     private visit: Visits[];
     private veterinaries: Veterinary[];
 ​
@@ -17,7 +18,7 @@ public constructor()
 {
     this.clients = [];
     this.pets = [];
-    this.providers = [];
+    this.providers = new ArrayProv();
     this.visit = [];
     this.veterinaries = [];
 }
@@ -47,15 +48,7 @@ addPet(pet: Pet) {
         console.log(`ID ${pet.getId()} ya está asignado a otra mascota.`);
     }
 }
-​
-addProvider(provider: Provider) {
-    if (!this.isIDAssigned(this.providers, provider.getId())) {
-        this.providers.push(provider);
-    } else {
-        console.log(`ID ${provider.getId()} ya está asignado a otro proveedor.`);
-    }
-}
-​
+
 updateVIPStatus(clientID: number) {
     const client = this.clients.find((c) => c.getId() === clientID);
     if (client) {
@@ -119,13 +112,7 @@ listVisits(){
         console.log(`ID: ${client.getId()}, Nombre: ${client.getName()}, Teléfono: ${client.getPhone()}, Cantidad de visitas: ${client.getVisits()}`);
     });
 }
-​
-listProviders() {
-    console.log("Lista de Proveedores:");
-    this.providers.forEach((provider) => {
-        console.log(`ID: ${provider.getId()}, Nombre: ${provider.getName()}, Teléfono: ${provider.getPhone()}`);
-    });
-}
+
 public menu () : void {
 ​
     const choice = rs.keyInSelect (this.menuOptions);
@@ -138,7 +125,7 @@ public menu () : void {
       case 1 : this.menuClientes();
         break;
         
-      case 2 : this.menuProveedores();
+      case 2 : this.providers.menuProveedores();
         break;  
 ​
       case 3 : this.menuVisitas();
@@ -174,30 +161,6 @@ public menuSucursales () {
 }
 ​
 public menuClientes () {
-​
-  const choice = rs.keyInSelect (this.menuOptionsA);
-​
-  switch (choice) {
-​
-    case 0 :
-      break;
-​
-    case 1 : 
-      break;
-      
-    case 2 : 
-      break;  
-​
-    case 3 : 
-      break;
-​
-    default : 
-      break;
-  }
-​
-}
-​
-public menuProveedores () {
 ​
   const choice = rs.keyInSelect (this.menuOptionsA);
 ​

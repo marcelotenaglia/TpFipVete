@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import { Provider } from "../clases/providerClass";
+
 export class FileManagerProveedores {
 
     static guardarDatosProveedores (Proveedores : Provider[]) : void {
