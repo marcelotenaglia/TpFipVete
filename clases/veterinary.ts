@@ -4,6 +4,7 @@ import { Client } from "./clientClass";
 import { Pet } from "./petClass";
 import { Provider } from "./providerClass";
 import { Arreglos } from "./arrays";
+import { randomUUID as uid } from "node:crypto";
 
 /*Ejercicio
 Hagamos un ejemplo práctico:
@@ -24,21 +25,24 @@ IMPORTANTE: los id deben ser únicos, por lo tanto al generarse, antes de guarda
 
 export class Veterinary {
 
-    private static idCounter: number = 1;
-    private id: number ;
+    private id: string = uid();
+    private cod: number ;
     private name: string;
     private address: string;
 
     
-    constructor(name: string, address: string) {
-      this.id = Veterinary.idCounter++;;
+    constructor(cod:number,name: string, address: string) {
       this.name = name;
       this.address = address;
-
+      this.cod = cod;
       
     }
+    public getCod():number
+    {
+      return this.cod;
+    }
   
-    getId(): number {
+    getId(): string {
       return this.id;
     }
   
@@ -66,7 +70,7 @@ export class Veterinary {
 
       if (typeof value === 'object' && value !== null && 'name' in value) {
 
-        const veterinaria = new Veterinary (value.name, value.addres);
+        const veterinaria = new Veterinary (value.cod,value.name, value.addres);
 
         Object.assign (veterinaria, value) 
 

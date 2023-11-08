@@ -4,6 +4,7 @@ import { Client } from "./clientClass";
 import { Pet } from "./petClass";
 import { Provider } from "./providerClass";
 import { Veterinary } from "./veterinary";
+import { arraysvet } from "./arraySucursales";
 ​
 export class Arreglos
 {
@@ -11,7 +12,7 @@ export class Arreglos
     private pets: Pet[];
     private providers: Provider[];
     private visit: Visits[];
-    private veterinaries: Veterinary[];
+    private sucursales: arraysvet;
 ​
 public constructor()
 {
@@ -19,18 +20,12 @@ public constructor()
     this.pets = [];
     this.providers = [];
     this.visit = [];
-    this.veterinaries = [];
+    this.sucursales = new arraysvet();
 }
 private isIDAssigned(entities: any[], id: number): boolean {
     return entities.some(entity => entity.getId() === id);
 }
-addVeterinary(vet: Veterinary) {
-    if (!this.isIDAssigned(this.veterinaries, vet.getId())) {
-        this.veterinaries.push(vet);
-    } else {
-        console.log(`ID ${vet.getId()} ya está asignado a otra sucursal.`);
-    }
-}
+
 ​
 addClient(client: Client) {
     if (!this.isIDAssigned(this.clients, client.getId())) {
@@ -68,11 +63,7 @@ updateVIPStatus(clientID: number) {
     }
   }
 ​
-  deleteVeterinary (vete: Veterinary): void{
-    this.veterinaries = this.veterinaries.filter((vetes) => vetes != vete);
-    console.log (`Sucursal ${vete.getName()} dada de baja con exito`);
-    
-  }
+
 ​
   deletePet (pet:Pet): void{
     this.pets = this.pets.filter((pets) => pets != pet);
@@ -126,14 +117,18 @@ listProviders() {
         console.log(`ID: ${provider.getId()}, Nombre: ${provider.getName()}, Teléfono: ${provider.getPhone()}`);
     });
 }
-public menu () : void {
+public menu () {
 ​
+while(true)
+{
+  console.clear();
     const choice = rs.keyInSelect (this.menuOptions);
     
 ​
     switch (choice) {
 ​
-      case 0 : this.menuSucursales();
+      case 0 : 
+      this.sucursales.menuSucursales();
         break;
 ​
       case 1 : this.menuClientes();
@@ -145,34 +140,13 @@ public menu () : void {
       case 3 : this.menuVisitas();
         break;
 ​
-      default : 
-        break;
+      default: 
+        rs.keyInPause("nino vimos");
+        return;
     }
+  }
 } 
 ​
-public menuSucursales () {
-​
-  const choice = rs.keyInSelect (this.menuOptionsA);
-​
-  switch (choice) {
-​
-    case 0 :
-      break;
-​
-    case 1 : 
-      break;
-      
-    case 2 : 
-      break;  
-​
-    case 3 : 
-      break;
-​
-    default : 
-      break;
-  }
-​
-}
 ​
 public menuClientes () {
 ​
