@@ -129,6 +129,7 @@ listProviders() {
 public menu () : void {
 ​
     const choice = rs.keyInSelect (this.menuOptions);
+    
 ​
     switch (choice) {
 ​
