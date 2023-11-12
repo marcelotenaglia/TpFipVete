@@ -2,17 +2,24 @@ export class Client {
   
     private static idCounter: number = 1;
     private id: number ;
+    private dni :number;
     private name: string;
     private phone: string;
     private isVIP: boolean;
     private visits: number;
   
-    constructor(name: string, phone: string) {
+    constructor(dni: number,name: string, phone: string) {
       this.id = Client.idCounter++;
       this.name = name;
       this.phone = phone;
       this.isVIP = false;
       this.visits = 0;
+      this.dni = dni;
+    }
+
+    public getDni():number
+    {
+      return this.dni;
     }
   
     getId(): number {
@@ -60,7 +67,7 @@ export class Client {
 
       if (typeof value === 'object' && value !== null && 'client' in value) {
   
-        const cliente = new Client (value.name, value.phone);
+        const cliente = new Client (value.dni,value.name, value.phone);
   
         Object.assign (cliente, value) 
   

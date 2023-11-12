@@ -4,12 +4,10 @@ import { Client } from "./clientClass";
 import { Pet } from "./petClass";
 import { Provider } from "./providerClass";
 import { Veterinary } from "./veterinary";
-<<<<<<< HEAD
-import { ArrayProv } from "./arrayProviders";
-=======
 import { arraysvet } from "./arraySucursales";
->>>>>>> e04410b8e74c660b2c8bcc1d1173dbb8a484d7f8
-​
+import { ArrayProv } from "./arrayProviders";
+import { ArrayClientes } from "./arrayClient";
+
 export class Arreglos
 {
     private clients: Client[];
@@ -17,6 +15,7 @@ export class Arreglos
     private providers: ArrayProv;
     private visit: Visits[];
     private sucursales: arraysvet;
+    private clientes :ArrayClientes;
 ​
 public constructor()
 {
@@ -25,6 +24,7 @@ public constructor()
     this.providers = new ArrayProv();
     this.visit = [];
     this.sucursales = new arraysvet();
+    this.clientes = new ArrayClientes();
 }
 private isIDAssigned(entities: any[], id: number): boolean {
     return entities.some(entity => entity.getId() === id);
@@ -106,20 +106,11 @@ listVisits(){
         console.log(`ID: ${client.getId()}, Nombre: ${client.getName()}, Teléfono: ${client.getPhone()}, Cantidad de visitas: ${client.getVisits()}`);
     });
 }
-<<<<<<< HEAD
 
 public menu () : void {
-=======
+
 ​
-listProviders() {
-    console.log("Lista de Proveedores:");
-    this.providers.forEach((provider) => {
-        console.log(`ID: ${provider.getId()}, Nombre: ${provider.getName()}, Teléfono: ${provider.getPhone()}`);
-    });
-}
-public menu () {
->>>>>>> e04410b8e74c660b2c8bcc1d1173dbb8a484d7f8
-​
+
 while(true)
 {
   console.clear();
@@ -132,7 +123,7 @@ while(true)
       this.sucursales.menuSucursales();
         break;
 ​
-      case 1 : this.menuClientes();
+      case 1 : this.clientes.menuClientes();
         break;
         
       case 2 : this.providers.menuProveedores();
