@@ -17,6 +17,18 @@ export class ArrayClientes {
         const cliente = this.clientes.find((cli) => cli.getDni() === DNI);
         return cliente;
     }
+    /*updateVIPStatus(clientID: number) {
+        const client = this.clients.find((c) => c.getId() === clientID);
+        if (client) {
+          const visits = client.getVisits();
+          client.incrementVisits();; // Incrementa el número de visitas
+          client.setVisits(visits); // Actualiza el número de visitas en el cliente
+          if (visits >= 5) {
+            client.setIsVIP(true); // Establece el estado VIP en true
+          }
+        }
+      }*/
+    ​
 
     public listClients(): void {
         this.clientes.forEach((cli) => {

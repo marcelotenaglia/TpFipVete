@@ -1,6 +1,7 @@
 import * as rs from "readline-sync";
 import { Client } from "./clientClass";
 import { Pet } from "./petClass";
+import {Veterinary} from "./veterinary"; 
 
 export class Visits {
     private static idCounter: number = 30;
@@ -9,13 +10,15 @@ export class Visits {
     private pet: Pet;
     private visitsdate: Date;
     private motive: string;
+    private sucursal : Veterinary;
 
-    public constructor(client: Client, pet:Pet){
+    public constructor(client: Client, pet:Pet, sucursal:Veterinary){
         this.client = client;
         this.pet = pet;
         this.visitsdate = new Date();
         this.id = Visits.idCounter++;
         this.motive = this.visitMotive();
+        this.sucursal = sucursal;
   
         
     }
@@ -28,7 +31,20 @@ export class Visits {
     return visitMotive; 
    
     }
+    public getId():number
+    {
+      return this.id;
+    }
 
+    public getSucursal():Veterinary
+    {
+      return this.sucursal;
+    }
+
+    public setSucursal(sucursal :Veterinary):void
+    {
+      this.sucursal = sucursal;
+    }
     getMotive(): string {
         return this.motive;
     }
@@ -49,7 +65,7 @@ export class Visits {
 
         if (typeof value === 'object' && value !== null && 'client' in value) {
     
-          const visita = new Visits (value.client, value.pet);
+          const visita = new Visits (value.client, value.pet,value.sucursal);
     
           Object.assign (visita, value) 
     

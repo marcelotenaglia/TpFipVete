@@ -9,13 +9,13 @@ enum Especies {
       private id: number ;
       private name: string;
       private species: Especies;
-      private ownerID: number;
+  
     
-      constructor(name: string, species: Especies, ownerID: number) {
+      constructor(name: string, species: Especies) {
         this.id = Pet.idCounter++;
         this.name = name;
         this.species = species;
-        this.ownerID = ownerID;
+   
       }
     
       getId(): number {
@@ -30,10 +30,7 @@ enum Especies {
         return this.species;
       }
     
-      getOwnerID(): number {
-        return this.ownerID;
-      }
-  
+
       setName(name: string): void {
           this.name = name;
       }
@@ -42,8 +39,5 @@ enum Especies {
           this.species = species;
       }
   
-      setOwnerID(ownerID: number): void {
-          this.ownerID = ownerID;
-      }
-  
+ 
     }
