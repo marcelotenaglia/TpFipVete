@@ -52,6 +52,11 @@ export class Client {
 
       incrementVisits() {
         this.visits++;
+
+        if(this.visits >= 5 && this.getIsVIP() === false)
+        {
+          this.setIsVIP(true);
+        }
       }
 
       

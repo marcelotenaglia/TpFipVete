@@ -17,7 +17,7 @@ export class Visits {
         this.pet = pet;
         this.visitsdate = new Date();
         this.id = Visits.idCounter++;
-        this.motive = this.visitMotive();
+        this.motive = "";
         this.sucursal = sucursal;
   
         
@@ -34,6 +34,14 @@ export class Visits {
     public getId():number
     {
       return this.id;
+    }
+    public getClient():Client
+    {
+      return this.client;
+    }
+    public getPet():Pet
+    {
+      return this.pet;
     }
 
     public getSucursal():Veterinary

@@ -22,5 +22,53 @@
       "address": "9 de julio 159",
       "cod": 1
     }
+  },
+  {
+    "client": {
+      "id": 1,
+      "name": "123",
+      "phone": "213",
+      "isVIP": false,
+      "visits": 0,
+      "dni": 35412721
+    },
+    "pet": {
+      "id": 10,
+      "name": "pepito",
+      "species": "Gato"
+    },
+    "visitsdate": "2023-11-16T18:56:57.679Z",
+    "id": 31,
+    "motive": "dolor",
+    "sucursal": {
+      "id": "7c026a15-982e-4f11-9c9f-e4ab94289f0c",
+      "name": "Espacio Animal",
+      "address": "9 de julio 159",
+      "cod": 1
+    }
+  },
+  {
+    "client": {
+      "id": 1,
+      "name": "123",
+      "phone": "213",
+      "isVIP": false,
+      "visits": 0,
+      "dni": 35412721
+    },
+    "pet": {
+      "id": 10,
+      "name": "123",
+      "species": "Perro"
+    },
+    "visitsdate": "2023-11-16T19:06:52.028Z",
+    "id": 32,
+    "motive": "",
+    "sucursal": {
+      "id": "7c026a15-982e-4f11-9c9f-e4ab94289f0c",
+      "name": "Espacio Animal",
+      "address": "9 de julio 159",
+      "cod": 1
+    }
   }
 ]

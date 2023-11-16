@@ -41,6 +41,8 @@ export class arrayVisit
         {
             const visita = new Visits(cliente,pet,sucursal);
             this.visitas.push(visita);
+            cliente = Client.revive("",cliente);
+            this.arrayclientes.sumarVisita(cliente.getDni());
             FileManagerVisitas.guardarDatosVisitas(this.visitas);
         }
         else
@@ -52,14 +54,22 @@ export class arrayVisit
     }
     public listarVisita():void
     {
+        let cli:Client;
+        let pet:Pet;
+        let sucursal:Veterinary;
         this.visitas.forEach(visi =>{
+            visi = Visits.revive("",visi);
+            cli = Client.revive("",visi.getClient());
+            pet = Pet.revive("",visi.getPet());
+            sucursal =Veterinary.revive("",visi.getSucursal()); 
+
             console.log(`
                  ---- Visita ----
-                ${visi.getClientName()}
-                ${visi.getPetName()}
+                ${cli.getName()}
+                ${pet.getName()}
                 ${visi.getMotive()}
                 ${visi.getDate()}
-                ${visi.getSucursal()} 
+                ${sucursal.getName()} 
 
                 --------------------
             `);
@@ -67,17 +77,24 @@ export class arrayVisit
     }
     public listarVisitaSucusal(cod:number):void
     {
+        let cli:Client;
+        let pet:Pet;
+        let sucursal:Veterinary;
         this.visitas.forEach(visi =>{
-            let sucursal = visi.getSucursal()
+            visi = Visits.revive("",visi);
+            cli = Client.revive("",visi.getClient());
+            pet = Pet.revive("",visi.getPet());
+            sucursal =Veterinary.revive("",visi.getSucursal()); 
+
             if(cod === sucursal.getCod())
             {
                 console.log(`
                 ---- Visita ----
-               ${visi.getClientName()}
-               ${visi.getPetName()}
-               ${visi.getMotive()}
-               ${visi.getDate()}
-               ${visi.getSucursal()} 
+                ${cli.getName()}
+                ${pet.getName()}
+                ${visi.getMotive()}
+                ${visi.getDate()}
+                ${sucursal.getName()} 
 
                --------------------
            `);
@@ -152,7 +169,7 @@ export class arrayVisit
         this.cargarVisitas(FileManagerVisitas.cargarDatosVisitas());
         while(true)
         {
-            console.clear()
+        console.clear()
           const choice = rs.keyInSelect (this.menuOptionsA);
         ​
           switch (choice) {

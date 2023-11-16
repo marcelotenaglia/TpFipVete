@@ -38,6 +38,20 @@ enum Especies {
       setSpecies(species: Especies): void {
           this.species = species;
       }
-  
+      static revive (key : string, value : any) : Pet | any {
+
+        if (typeof value === 'object' && value !== null && 'name' in value) {
+    
+          const pet = new Pet (value.name,value.especie);
+    
+          Object.assign (pet, value) 
+    
+          return pet;
+          
+        }
+    
+        return value;
+    
+      }
  
     }

@@ -62,6 +62,15 @@ export class ArrayClientes {
         });
     }
 
+    public sumarVisita(dni : number):void
+    {
+        const cli = this.findClient(dni);
+        if(cli !== undefined)
+        {
+            cli.incrementVisits();
+            FileManagerClientes.guardarDatosClientes(this.clientes);
+        }
+    }
     public cargarClientes(cli: Client[]): void {
         this.clientes = cli;
     }
@@ -76,7 +85,7 @@ export class ArrayClientes {
     public menuClientes(): void {
         this.cargarClientes(FileManagerClientes.cargarDatosClientes());
         while (true) {
-           // console.clear();
+            console.clear();
             const choice = rs.keyInSelect(this.menuOptionsA);
 
             switch (choice) {

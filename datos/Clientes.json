@@ -4,7 +4,15 @@
     "name": "123",
     "phone": "213",
     "isVIP": false,
-    "visits": 0,
+    "visits": 1,
     "dni": 35412721
+  },
+  {
+    "id": 4,
+    "name": "Marcelo",
+    "phone": "2874563",
+    "isVIP": false,
+    "visits": 0,
+    "dni": 123456789
   }
 ]
