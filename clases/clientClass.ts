@@ -65,7 +65,7 @@ export class Client {
 
     static revive (key : string, value : any) : Client | any {
 
-      if (typeof value === 'object' && value !== null && 'client' in value) {
+      if (typeof value === 'object' && value !== null && 'name' in value) {
   
         const cliente = new Client (value.dni,value.name, value.phone);
   

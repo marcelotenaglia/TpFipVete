@@ -1,8 +1,8 @@
 import * as rs from 'readline-sync';
 import { Client } from './clientClass'; 
-import { Readline } from "readline/promises";
 import { FileManagerClientes } from "../fileManagers/fsClientes";
 import { Veterinary } from "./veterinary";
+
 
 
 export class ArrayClientes {
@@ -13,8 +13,8 @@ export class ArrayClientes {
         this.clientes = [];
     }
 
-    public findClient(DNI: number): Client | undefined {
-        const cliente = this.clientes.find((cli) => cli.getDni() === DNI);
+    public findClient(dni: number): Client | undefined {
+        const cliente = this.clientes.find((cli) => cli.getDni() === dni);
         return cliente;
     }
     /*updateVIPStatus(clientID: number) {
@@ -31,7 +31,8 @@ export class ArrayClientes {
     ​
 
     public listClients(): void {
-        this.clientes.forEach((cli) => {
+        this.clientes.forEach(cli => {
+            cli = Client.revive("",cli);
             console.log(`
                 DNI del Cliente: ${cli.getDni()}
                 Nombre del Cliente: ${cli.getName()}
@@ -42,13 +43,13 @@ export class ArrayClientes {
         });
     }
 
-    public addClient(DNI: number, name: string, phone: string): void {
-        if (this.findClient(DNI) === undefined) {
-            const cliente = new Client(DNI, name, phone);
+    public addClient(dni: number, name: string, phone: string): void {
+        if (this.findClient(dni) === undefined) {
+            const cliente = new Client(dni, name, phone);
             this.clientes.push(cliente);
             FileManagerClientes.guardarDatosClientes(this.clientes);
         } else {
-            console.log(`El DNI ${DNI} ya está vinculado a un cliente`);
+            console.log(`El DNI ${dni} ya está vinculado a un cliente`);
         }
     }
 
@@ -74,13 +75,13 @@ export class ArrayClientes {
 
     public menuClientes(): void {
         this.cargarClientes(FileManagerClientes.cargarDatosClientes());
-
         while (true) {
-            console.clear();
+           // console.clear();
             const choice = rs.keyInSelect(this.menuOptionsA);
 
             switch (choice) {
                 case 0:
+
                     this.listClients();
                     rs.keyInPause("");
                     break;

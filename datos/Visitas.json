@@ -1,0 +1,26 @@
+[
+  {
+    "client": {
+      "id": 1,
+      "name": "123",
+      "phone": "213",
+      "isVIP": false,
+      "visits": 0,
+      "dni": 35412721
+    },
+    "pet": {
+      "id": 10,
+      "name": "cosa",
+      "species": "Perro"
+    },
+    "visitsdate": "2023-11-16T01:04:14.145Z",
+    "id": 30,
+    "motive": "Le duele algo",
+    "sucursal": {
+      "id": "7c026a15-982e-4f11-9c9f-e4ab94289f0c",
+      "name": "Espacio Animal",
+      "address": "9 de julio 159",
+      "cod": 1
+    }
+  }
+]

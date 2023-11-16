@@ -12,7 +12,6 @@ import { arrayVisit } from "./arrayvisits";
 export class Arreglos
 {
     private providers: ArrayProv;
-    private visit: Visits[];
     private sucursales: arraysvet;
     private clientes :ArrayClientes;
     private visits: arrayVisit;
@@ -21,16 +20,16 @@ public constructor()
 {
 
     this.providers = new ArrayProv();
-    this.visit = [];
     this.sucursales = new arraysvet();
     this.clientes = new ArrayClientes();
     this.visits = new arrayVisit();
 }
+/*
 private isIDAssigned(entities: any[], id: number): boolean {
     return entities.some(entity => entity.getId() === id);
 }
 
-​/*
+​
 addClient(client: Client) {
     if (!this.isIDAssigned(this.clients, client.getId())) {
         this.clients.push(client);
@@ -100,13 +99,7 @@ listVisits(){
       });
   }
 
-  listClients() {
-    console.log("Lista de Clientes:");
-    this.clients.forEach((client) => {
-        console.log(`ID: ${client.getId()}, Nombre: ${client.getName()}, Teléfono: ${client.getPhone()}, Cantidad de visitas: ${client.getVisits()}`);
-    });
-}
-​*/
+*/
 public menu () : void {
 
 ​

@@ -1,5 +1,7 @@
 import * as fs from "fs";
 import { Client } from "../clases/clientClass";
+
+
 export class FileManagerClientes {
 
     static guardarDatosClientes (Clientes : Client[]) : void {
@@ -11,11 +13,11 @@ export class FileManagerClientes {
     }
 
 
-    static cargarDatosClientes() : Client [] {
+    static cargarDatosClientes() : Client[] {
 
     try {
         
-        const ClientesJSON = fs.readFileSync('../datos/Visitas.json', 'utf8');
+        const ClientesJSON = fs.readFileSync('../datos/Clientes.json', 'utf8');
 
         return JSON.parse(ClientesJSON, Client.revive);
 

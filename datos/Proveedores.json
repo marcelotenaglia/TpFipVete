@@ -4,5 +4,11 @@
     "name": "Mascot",
     "phone": "2983554466",
     "cuit": "20157418521"
+  },
+  {
+    "id": 21,
+    "name": "mascotitas",
+    "phone": "789654",
+    "cuit": "123456789"
   }
 ]

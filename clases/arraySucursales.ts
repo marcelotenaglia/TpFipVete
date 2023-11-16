@@ -13,11 +13,7 @@ export class arraysvet
         this.sucursales = [];
     }
     public buscarVetPorcod(cod: number):Veterinary | undefined{
-      
-
         const suc =this.sucursales.find((vet) => vet.getCod() === cod)
-
-
         return suc;
 
 }

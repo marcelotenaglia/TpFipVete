@@ -43,7 +43,7 @@ export class Provider {
 
     static revive (key : string, value : any) : Provider | any {
 
-      if (typeof value === 'object' && value !== null && 'provider' in value) {
+      if (typeof value === 'object' && value !== null && 'name' in value) {
   
         const proveedor = new Provider (value.name, value.phone, value.cuit);
   
