@@ -15,7 +15,7 @@ export class ArrayClientes {
 
     public findClient(dni: number): Client | undefined {
         const cliente = this.clientes.find((cli) => cli.getDni() === dni);
-        return cliente;
+        return cliente; // Busca el cliente por dni
     }
     /*updateVIPStatus(clientID: number) {
         const client = this.clients.find((c) => c.getId() === clientID);
@@ -37,7 +37,7 @@ export class ArrayClientes {
                 DNI del Cliente: ${cli.getDni()}
                 Nombre del Cliente: ${cli.getName()}
                 Teléfono del Cliente: ${cli.getPhone()}
-                ¿Es VIP?: ${cli.getIsVIP() ? 'Sí' : 'No'}
+                ¿Es VIP?: ${cli.getIsVIP() ? 'Sí' : 'No'} 
                 Número de visitas: ${cli.getVisits()}
             `);
         });

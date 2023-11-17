@@ -1,7 +1,7 @@
 export class Client {
   
-    private static idCounter: number = 1;
-    private id: number ;
+    //private static idCounter: number = 1;
+    //private id: number ;
     private dni :number;
     private name: string;
     private phone: string;
@@ -9,7 +9,7 @@ export class Client {
     private visits: number;
   
     constructor(dni: number,name: string, phone: string) {
-      this.id = Client.idCounter++;
+      //this.id = Client.idCounter++;
       this.name = name;
       this.phone = phone;
       this.isVIP = false;
@@ -22,9 +22,7 @@ export class Client {
       return this.dni;
     }
   
-    getId(): number {
-      return this.id;
-    }
+   // getId(): number { return this.id; }
   
     getName(): string {
       return this.name;
