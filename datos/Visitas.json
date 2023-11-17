@@ -70,5 +70,29 @@
       "address": "9 de julio 159",
       "cod": 1
     }
+  },
+  {
+    "client": {
+      "id": 1,
+      "name": "Juan Pedro",
+      "phone": "2983346206",
+      "isVIP": false,
+      "visits": 4,
+      "dni": 35412721
+    },
+    "pet": {
+      "id": 10,
+      "name": "Pepito",
+      "species": "Perro"
+    },
+    "visitsdate": "2023-11-17T12:22:50.383Z",
+    "id": 33,
+    "motive": "",
+    "sucursal": {
+      "id": "44f1f9ae-9f98-46ff-ac85-8186bee4a20d",
+      "name": "Mascots",
+      "address": "San Martin 439",
+      "cod": 2
+    }
   }
 ]

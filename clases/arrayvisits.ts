@@ -120,9 +120,10 @@ export class arrayVisit
     public pedirDatosCliente():void
     {
         this.arrayclientes.cargarClientes(FileManagerClientes.cargarDatosClientes());
+        this.arraysucursales.cargarSucursales(FileManagerVeterinaries.cargarDatosVeterinary());
         const clientdni = rs.questionInt("Ingrese el dni del cliente: ");
         const cliente = this.arrayclientes.findClient(clientdni);
-        console.log(cliente);
+
         
         if(cliente !== undefined){
             const petname = rs.question("Ingrese el nombre de la mascota: ");
