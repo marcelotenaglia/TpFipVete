@@ -82,6 +82,54 @@ export class ArrayClientes {
         this.addClient(DNI, name, phone);
     }
 
+
+        
+public updateClient(DNIClient: number) {
+    const cliUpdate = this.findClient(DNIClient);
+
+    if (cliUpdate !== undefined) {
+        const choiceX = rs.keyInSelect(this.updateOptions);
+        
+        switch (choiceX) {
+            case 0:
+                this.updateClientName(cliUpdate);
+                break;
+            case 1:
+                this.updateClientPhone(cliUpdate);
+                break;
+            default:
+                console.log("Operación cancelada");
+                break;
+        }
+    } else {
+        console.log(`El cliente con el DNI ${DNIClient} no existe`);
+    }
+} // modificar datos cliente
+
+private updateClientName(client: Client) {
+    const newName = rs.question("Ingrese Nuevo Nombre: ");
+    try {
+        client.setName(newName);
+        FileManagerClientes.guardarDatosClientes(this.clientes);
+        console.log(`Cambio realizado con éxito. Nuevo nombre: ${client.getName()}`);
+    } catch (error) {
+        console.error("Error al actualizar el nombre del cliente:", error.message);
+    }
+} //modificar nombre
+
+private updateClientPhone(client: Client) {
+    const newPhone = rs.question("Ingrese Nuevo Teléfono: ");
+    try {
+        client.setPhone(newPhone);
+        FileManagerClientes.guardarDatosClientes(this.clientes);
+        console.log(`Cambio realizado con éxito. Nuevo teléfono: ${client.getPhone()}`);
+    } catch (error) {
+        console.error("Error al actualizar el teléfono del cliente:", error.message);
+    }
+} //modificar telefono
+
+        
+
     public menuClientes(): void {
         this.cargarClientes(FileManagerClientes.cargarDatosClientes());
         while (true) {
@@ -90,7 +138,6 @@ export class ArrayClientes {
 
             switch (choice) {
                 case 0:
-
                     this.listClients();
                     rs.keyInPause("");
                     break;
@@ -98,8 +145,11 @@ export class ArrayClientes {
                     this.pedirDatos();
                     rs.keyInPause("");
                     break;
-                case 2:
-                    rs.keyInPause("Modificar próximamente");
+                case 2: //modificar datos!!!
+                    //rs.keyInPause("Modificar próximamente");
+                    const DNIClient = rs.questionInt("Ingrese el DNI del cliente a modificar: ");
+                    this.updateClient(DNIClient);
+                    rs.keyInPause("");
                     break;
                 case 3:
                     const DNI = rs.questionInt("Ingrese el DNI del cliente a borrar: ");
@@ -128,4 +178,5 @@ export class ArrayClientes {
 
     private confirmacionOptions = ["Eliminar"];
     private menuOptionsA = ["Listar", "Agregar", "Modificar", "Eliminar"];
+    private updateOptions = ["Modificar nombre","Modificar telefono"]; 
 }
