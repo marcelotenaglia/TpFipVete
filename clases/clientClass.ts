@@ -17,8 +17,7 @@ export class Client {
       this.dni = dni;
     }
 
-    public getDni():number
-    {
+    public getDni():number {
       return this.dni;
     }
   
