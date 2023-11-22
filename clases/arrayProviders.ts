@@ -116,11 +116,8 @@ public findProvider (cuit : string) : Provider | undefined {
             rs.keyInPause("");
               break;
               
-            case 2 : 
-            rs.keyInPause("Modificar Proximamente");
-              break;  
         ​
-            case 3 : 
+            case 2 : 
                 const cuit = rs.question("Ingrese el CUIT de la sucursal a borrar : ");
                 const provDel = this.findProvider(cuit);
                 if(provDel !== undefined)
@@ -152,6 +149,6 @@ public findProvider (cuit : string) : Provider | undefined {
 }
 
  confirmacionOptions = ["Eliminar"];
- menuOptionsA = ["Listar", "Agregar", "Modificar", "Eliminar"]
+ menuOptionsA = ["Listar", "Agregar", "Eliminar"]
 
 }

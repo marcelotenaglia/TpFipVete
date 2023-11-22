@@ -88,13 +88,15 @@ export class arrayVisit
 
             if(cod === sucursal.getCod())
             {
+                console.log(cod);
                 console.log(`
-                ---- Visita ----
+                ------ Visita ------
                 ${cli.getName()}
                 ${pet.getName()}
                 ${visi.getMotive()}
                 ${visi.getDate()}
                 ${sucursal.getName()} 
+                ${sucursal.getCod()}
 
                --------------------
            `);
@@ -177,12 +179,11 @@ export class arrayVisit
         ​
             case 0 :
                 this.listarVisita();
-                
                 rs.keyInPause("");
               break;
         ​
             case 1 : 
-                const cod = rs.questionInt("Ingrese codigo de la sucursal");
+                const cod = rs.questionInt("Ingrese codigo de la sucursal  ");
                 console.clear();
                 this.listarVisitaSucusal(cod);
             rs.keyInPause("");

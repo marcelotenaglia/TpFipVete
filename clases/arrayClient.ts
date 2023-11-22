@@ -99,9 +99,6 @@ export class ArrayClientes {
                     rs.keyInPause("");
                     break;
                 case 2:
-                    rs.keyInPause("Modificar próximamente");
-                    break;
-                case 3:
                     const DNI = rs.questionInt("Ingrese el DNI del cliente a borrar: ");
                     const cliDel = this.findClient(DNI);
                     if (cliDel !== undefined) {
@@ -127,5 +124,5 @@ export class ArrayClientes {
     }
 
     private confirmacionOptions = ["Eliminar"];
-    private menuOptionsA = ["Listar", "Agregar", "Modificar", "Eliminar"];
+    private menuOptionsA = ["Listar", "Agregar", "Eliminar"];
 }

@@ -84,12 +84,9 @@ export class arraysvet
             this.pedirDatos();
             rs.keyInPause("");
               break;
-              
-            case 2 : 
-            rs.keyInPause("Modificar Proximamente");
-              break;  
+               
         ​
-            case 3 : 
+            case 2 : 
                 const cod = rs.questionInt("Ingrese el codigo de la sucursal a borrar : ");
                 const sucdel = this.buscarVetPorcod(cod);
                 if(sucdel !== undefined)
@@ -120,5 +117,5 @@ export class arraysvet
         }
     }
         confirmacionOptions = ["Eliminar"];
-        menuOptionsA = ["Listar", "Agregar", "Modificar", "Eliminar"]
+        menuOptionsA = ["Listar", "Agregar", "Eliminar"]
 }
